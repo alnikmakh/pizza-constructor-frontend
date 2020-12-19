@@ -1,6 +1,6 @@
 import {observer} from 'mobx-react';
 import React from 'react';
-import {Switch, Redirect} from 'react-router-dom';
+import {Switch} from 'react-router-dom';
 
 import {RouteWithLayout} from './components/common/route-with-layout';
 
@@ -25,7 +25,6 @@ export const Router: React.FC = observer(() => {
               path={route.path}
               role={route.role}
               token={userStore.token}
-              toggleIsLogin={userStore.toggleIsLogin}
             />
           );
         })

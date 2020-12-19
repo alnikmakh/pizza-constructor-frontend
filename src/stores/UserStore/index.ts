@@ -7,7 +7,7 @@ export interface IUserStore {
   readonly isLogin: boolean;
 }
 
-export class UserStore {
+export class UserStore implements IUserStore{
 
   @observable
   private _token: string | undefined;

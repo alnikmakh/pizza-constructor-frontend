@@ -1,5 +1,8 @@
 import React from "react";
 import {ROLES} from "./constants";
+import {Main} from "./layouts/main";
+import {PizzaConstructorPage} from "./pages/pizza-constructor";
+import {PizzaListPage} from "./pages/pizza-list";
 
 export interface IRoute {
   component: React.FC,
@@ -18,7 +21,7 @@ export const routes: IRoute[] = [
   {
     component: PizzaConstructorPage,
     layout: Main,
-    path: '/constructor',
+    path: '/',
     role: ROLES.user,
   }
 

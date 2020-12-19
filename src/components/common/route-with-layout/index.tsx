@@ -1,13 +1,13 @@
 import React from 'react';
 import {Route, RouteProps} from 'react-router-dom';
 import {ROLES} from "../../../constants";
+import {Login} from "../../../pages/login";
 
 interface Props extends RouteProps {
   layout: React.FC;
   component: React.FC;
   role: string;
   token: string | undefined;
-  toggleIsLogin: () => void;
 }
 
 export const RouteWithLayout: React.FC<Props> = ({
@@ -15,7 +15,6 @@ export const RouteWithLayout: React.FC<Props> = ({
                                                    component: Component,
                                                    role,
                                                    token,
-                                                   toggleIsLogin,
                                                    ...rest
                                                  }: Props) => {
 
@@ -33,9 +32,13 @@ export const RouteWithLayout: React.FC<Props> = ({
                 </Layout>
               );
             } else {
-              toggleIsLogin();
               return (
-                <Layout/>
+                <>
+                  <Layout>
+                    <Login/>
+                  </Layout>
+
+                </>
               );
             }
 
