@@ -27,7 +27,7 @@ export const LoginMenu: React.FC<ILoginMenuProps> = (props) => {
           horizontal: 'right',
         }}
       >
-        <LoginForm/>
+        <LoginForm handleClose={popupState.close}/>
       </Popover>
     </>
   );
