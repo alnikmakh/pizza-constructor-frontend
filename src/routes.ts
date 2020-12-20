@@ -16,7 +16,7 @@ export const routes: IRoute[] = [
     component: PizzaListPage,
     layout: Main,
     path: '/list',
-    role: ROLES.admin,
+    role: ROLES.user,
   },
   {
     component: PizzaConstructorPage,
