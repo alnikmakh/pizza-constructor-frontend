@@ -1,9 +1,9 @@
 import React from "react";
 import {Button, Grid, TextField} from "@material-ui/core";
-import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {useForm} from "react-hook-form";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     container: {
       padding: '1rem'
@@ -17,8 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const LoginForm: React.FC = (props) => {
-  const {children} = props;
+export const LoginForm: React.FC = () => {
   const classes = useStyles();
   const {register, handleSubmit} = useForm();
   return (

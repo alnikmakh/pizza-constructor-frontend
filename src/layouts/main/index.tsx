@@ -16,7 +16,7 @@ export const Main: React.FC = (props) => {
   const {children} = props;
   const classes = useStyles();
   return (
-    <Grid direction="column" className={classes.container}>
+    <Grid direction="column" className={classes.container} container>
       <Header/>
       {children}
     </Grid>
