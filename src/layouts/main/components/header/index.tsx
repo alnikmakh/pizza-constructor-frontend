@@ -3,6 +3,7 @@ import {Paper, Toolbar, Typography} from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import pizza from "../../assets/pizza.jpg";
 import {LoginMenu} from "./components/login-menu";
+import {NavLink, useLocation} from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,12 +26,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const Header: React.FC = (props) => {
   const classes = useStyles();
+  const location = useLocation();
 
   return (
     <>
       <Toolbar>
         <Typography
-          component="h2"
+          component={location.pathname === "/" ? "h2" : NavLink}
+          to={"/"}
           variant="h5"
           color="inherit"
           align="center"

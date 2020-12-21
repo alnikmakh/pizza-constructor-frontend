@@ -1,11 +1,11 @@
 import React from "react";
-import {IPizza} from "../../mock";
 import {Card, CardContent, CardMedia, Typography} from "@material-ui/core";
 import pizza from "../../assets/pizza-small.png";
 import {makeStyles} from "@material-ui/core/styles";
+import {IPizzaDTO} from "../../../../API/DTO/pizzaDTO";
 
 interface IPizzaCardProps {
-  pizzaEl: IPizza;
+  pizzaEl: IPizzaDTO;
 }
 
 const useStyles = makeStyles({
