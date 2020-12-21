@@ -25,9 +25,17 @@ class API implements IPizzaAPI {
   }
 
   createPizza = async (pizzaDTO: IPizzaDTO): Promise<void> => {
-    await this.client.post(`/`).catch((err) => {
+    await this.client.post(`/pizza`, pizzaDTO).catch((err) => {
       console.log(err);
     });
+  }
+
+  getIngredients = async (): Promise<any> => {
+    const result = await this.client.get(`/ingredients`).then((res) => {
+      return res.data;
+    });
+
+    return result;
   }
 
   login = async (user: IUserDTO): Promise<string> => {

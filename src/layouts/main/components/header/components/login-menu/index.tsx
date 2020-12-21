@@ -13,9 +13,11 @@ export const LoginMenu: React.FC<ILoginMenuProps> = (props) => {
     variant: 'popover',
     popupId: 'loginPopover',
   });
+
+  const trigger = bindTrigger(popupState);
   return (
     <>
-      <LoginButton {...bindTrigger(popupState)}/>
+      <LoginButton {...trigger}/>
       <Popover
         {...bindPopover(popupState)}
         anchorOrigin={{

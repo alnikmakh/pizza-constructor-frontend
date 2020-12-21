@@ -1,17 +1,12 @@
-import {observer} from 'mobx-react';
 import React from 'react';
-import {Switch} from 'react-router-dom';
-
+import {Switch, withRouter} from 'react-router-dom';
 import {RouteWithLayout} from './components/common/route-with-layout';
-
 import {routes} from './routes';
-import {useUserStore} from './stores/useAllStores';
+import {useUserStore} from "./stores/useAllStores";
 
 
-export const Router: React.FC = observer(() => {
-
+const _Router: React.FC = () => {
   const userStore = useUserStore();
-
   return (
     <Switch>
       {
@@ -31,4 +26,6 @@ export const Router: React.FC = observer(() => {
       }
     </Switch>
   );
-})
+};
+
+export const Router = withRouter(_Router);

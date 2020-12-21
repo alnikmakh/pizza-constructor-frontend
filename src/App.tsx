@@ -11,11 +11,11 @@ export const App = () => {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <BrowserRouter>
-          <StoreProvider>
+        <StoreProvider>
+          <BrowserRouter>
             <Router/>
-          </StoreProvider>
-        </BrowserRouter>
+          </BrowserRouter>
+        </StoreProvider>
       </ThemeProvider>
     </>
   );

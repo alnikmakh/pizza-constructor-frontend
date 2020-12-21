@@ -1,7 +1,8 @@
 import React from 'react';
 import {Route, RouteProps} from 'react-router-dom';
 import {ROLES} from "../../../constants";
-import {Login} from "../../../pages/login";
+import {Forbidden} from "./components/forbidden";
+import {observer} from "mobx-react";
 
 interface Props extends RouteProps {
   layout: React.FC;
@@ -10,7 +11,7 @@ interface Props extends RouteProps {
   token: string | undefined;
 }
 
-export const RouteWithLayout: React.FC<Props> = ({
+export const RouteWithLayout: React.FC<Props> = observer(({
                                                    layout: Layout,
                                                    component: Component,
                                                    role,
@@ -35,7 +36,7 @@ export const RouteWithLayout: React.FC<Props> = ({
               return (
                 <>
                   <Layout>
-                    <Login/>
+                    <Forbidden/>
                   </Layout>
 
                 </>
@@ -52,4 +53,6 @@ export const RouteWithLayout: React.FC<Props> = ({
       }}
     />
   );
-};
+});
+
+

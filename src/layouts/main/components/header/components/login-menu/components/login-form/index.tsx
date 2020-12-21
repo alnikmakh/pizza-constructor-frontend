@@ -4,6 +4,8 @@ import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {useForm} from "react-hook-form";
 import {useUserStore} from "../../../../../../../../stores/useAllStores";
 import {PizzaAPI} from "../../../../../../../../API/PizzaAPI";
+import {observer} from "mobx-react";
+import { useHistory, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -23,15 +25,18 @@ export interface ILoginFormProps {
   handleClose: () => void;
 }
 
-export const LoginForm: React.FC<ILoginFormProps> = ({handleClose}) => {
+export const LoginForm: React.FC<ILoginFormProps> = observer(({handleClose}) => {
   const classes = useStyles();
   const {register, handleSubmit} = useForm();
   const userStore = useUserStore();
+  const history = useHistory();
+  const location = useLocation();
 
   const onSubmit = async (data: any) => {
     const token = await PizzaAPI.login(data);
     userStore.setToken(token);
     handleClose();
+    history.push(location.pathname);
   };
   return (
       <form noValidate
@@ -70,4 +75,4 @@ export const LoginForm: React.FC<ILoginFormProps> = ({handleClose}) => {
 
 
   );
-}
+})
