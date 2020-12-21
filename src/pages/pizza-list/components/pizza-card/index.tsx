@@ -2,10 +2,18 @@ import React from "react";
 import {Card, CardContent, CardMedia, Typography} from "@material-ui/core";
 import pizza from "../../assets/pizza-small.png";
 import {makeStyles} from "@material-ui/core/styles";
-import {IPizzaDTO} from "../../../../API/DTO/pizzaDTO";
 
-interface IPizzaCardProps {
-  pizzaEl: IPizzaDTO;
+
+export interface IPizzaResponseDTO {
+  name: string;
+  ingredients: {
+    name: string;
+  }[];
+  thickDough: boolean;
+}
+
+export interface IPizzaCardProps {
+  pizzaEl: IPizzaResponseDTO;
 }
 
 const useStyles = makeStyles({
@@ -30,7 +38,10 @@ export const PizzaCard: React.FC<IPizzaCardProps> = ({pizzaEl}) => {
           {pizzaEl.name}
         </Typography>
         <Typography variant="body2" className={classes.mTop}>
-          {pizzaEl.ingredients.join(", ")}
+          {pizzaEl.ingredients.map((el) => el.name).join(", ")}
+        </Typography>
+        <Typography variant="body2" className={classes.mTop}>
+          Тесто: {pizzaEl.thickDough ? "толстое" : "тонкое"}
         </Typography>
       </CardContent>
     </Card>

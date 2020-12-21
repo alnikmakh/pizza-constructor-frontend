@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Grid, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import {PizzaCard} from "./components/pizza-card";
+import {IPizzaResponseDTO, PizzaCard} from "./components/pizza-card";
 import {PizzaAPI} from "../../API/PizzaAPI";
-import {IPizzaDTO} from "../../API/DTO/pizzaDTO";
 
 const useStyles = makeStyles({
   mTop: {
@@ -13,7 +12,7 @@ const useStyles = makeStyles({
 
 export const PizzaListPage: React.FC = () => {
   const classes = useStyles();
-  const [pizzas, setPizzas] = useState<IPizzaDTO[]>([]);
+  const [pizzas, setPizzas] = useState<IPizzaResponseDTO[]>([]);
   useEffect(() => {
     if (pizzas.length === 0) {
       const fetchPizzas = async () => {
